@@ -1,0 +1,37 @@
+d = list(input('아버지의 혈액형을 입력하세요 Ex) AA :  '))
+m = list(input('어머니의 혈액형을 입력하세요 Ex) AA :  '))
+
+print('1_1_d : A0 은 첫번째 세대의 첫번째 가족의 아빠를 지칭합니다. 자세한 것은 그림을 참조하세요) 
+data = list(input('주어진 혈액형들을 혈연관계에 맞게 입력하세요 세대수_가족단위수_d/m : 혈액형  Ex) 1_1_d : A0 ')
+
+son = [d[0]+m[0], d[0]+m[1], d[1]+m[0],d[1]+m[1]]
+
+for i in range(0,4) :
+    if son[i] == 'BA' :
+        son[i] = 'AB'
+    elif son[i] == 'OA' :
+        son[i] = 'AO'
+    elif son[i] == 'OB' :
+        son[i] = 'BO'
+        
+cAB = 25 * (son.count('AB'))
+cAO = 25 * (son.count('AO'))
+cAA = 25 * (son.count('AA'))
+cBB = 25 * (son.count('BB'))
+cBO = 25 * (son.count('BO'))
+cOO = 25 * (son.count('OO'))
+pro = {"AO": cAO, "AA": cAA, "AB": cAB, "BO": cBO, "BB": cBB, "OO" : cOO}
+print(pro)
+
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6,4), dpi=300)
+
+size = [cAO, cAA, cAB, cBB, cBO, cOO]  
+labels = 'AO', 'AA', 'AB', 'BB','BO','OO'
+colors = ['pink', 'red', 'blueviolet', 'blue','lightskyblue','lightgray']
+
+plt.title('blood type')
+plt.pie(size, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+
+plt.axis('equal')
+plt.show()

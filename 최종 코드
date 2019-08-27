@@ -1,125 +1,147 @@
-d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
-if len(d) == 2 :
-    d.append('A')
-    d.append('B')
-elif d[0] == 'O' :
-    d.append('O')
-    d.append('O')
-    d.append('O')
-elif d[0] == 'A' :
-    dd = input('친할아버지의 혈액형을 입력하세요 :')
-    dm = input('친할머니의 혈액형을 입력하세요 :')
-    if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
-        d.append('O')
+while True:
+    d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  ').upper())
+    if len(d) == 2 :
         d.append('A')
-        d.append('O')
-    elif dd == 'AB' and dm == 'AB' :
-        d.append('A')
-        d.append('A')
-        d.append('A')
-    else:
-        d.append('A')
-        d.append('A')
-        d.append('O')
-else :
-    dd = input('친할아버지의 혈액형을 입력하세요 :')
-    dm = input('친할머니의 혈액형을 입력하세요 :')
-    if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
-        d.append('O')
         d.append('B')
+    elif d[0] == 'O' :
         d.append('O')
-    elif dd == 'AB' and dm == 'AB' :
-        d.append('B')
-        d.append('B')
-        d.append('B')
+        d.append('O')
+        d.append('O')
+    elif d[0] == 'A' :
+        dd = input('친할아버지의 혈액형을 입력하세요 :').upper()
+        dm = input('친할머니의 혈액형을 입력하세요 :').upper()
+        if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
+            if dd=='B' and dm=='B':
+                print('아버지가 할머니, 할아버지에게 입양되었을 가능성이 큽니다.\n자세히 알아보고 다시 진행해 주세요.')
+                
+                break
+            else:
+                d.append('O')
+                d.append('A')
+                d.append('O')
+        elif dd == 'AB' and dm == 'AB' :
+            d.append('A')
+            d.append('A')
+            d.append('A')
+        else:
+            d.append('A')
+            d.append('A')
+            d.append('O')
     else :
-        d.append('B')
-        d.append('B')
-        d.append('O')
+        dd = input('친할아버지의 혈액형을 입력하세요 :').upper()
+        dm = input('친할머니의 혈액형을 입력하세요 :').upper()
+        if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
+            if dd=='A' and dm=='A':
+                print('아버지가 할머니, 할아버지에게 입양되었을 가능성이 큽니다.\n자세히 알아보고 다시 진행해 주세요.')
+                
+                break
+            else:
+                d.append('O')
+                d.append('B')
+                d.append('O') 
+        elif dd == 'AB' and dm == 'AB' :
+            d.append('B')
+            d.append('B')
+            d.append('B')
+        else :
+            d.append('B')
+            d.append('B')
+            d.append('O')
 
-m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  '))
-if len(m) == 2 :
-    m.append('A')
-    m.append('B')
-elif m[0] == 'O' :
-    m.append('O')
-    m.append('O')
-    m.append('O')
-elif m[0] == 'A' :
-    md = input('외할아버지의 혈액형을 입력하세요 :')
-    mm = input('외할머니의 혈액형을 입력하세요 :')
-    if md == 'B' or md == 'O' or mm == 'B' or mm == 'O' :
-        m.append('O')
+    m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  ').upper())
+    if len(m) == 2 :
         m.append('A')
-        m.append('O')
-    elif md == 'AB' and mm == 'AB' :
-        m.append('A')
-        m.append('A')
-        m.append('A')
-    else:
-        m.append('A')
-        m.append('A')
-        m.append('O')
-else :
-    md = input('외할아버지의 혈액형을 입력하세요 :')
-    mm = input('외할머니의 혈액형을 입력하세요 :')
-    if md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
-        m.append('O')
         m.append('B')
+    elif m[0] == 'O' :
         m.append('O')
-    elif md == 'AB' and mm == 'AB' :
-        m.append('B')
-        m.append('B')
-        m.append('B')
+        m.append('O')
+        m.append('O')
+    elif m[0] == 'A' :
+        md = input('외할아버지의 혈액형을 입력하세요 :').upper()
+        mm = input('외할머니의 혈액형을 입력하세요 :').upper()
+        if md == 'B' or md == 'O' or mm == 'B' or mm == 'O' :
+            if md=='B' and mm=='B':
+                print('어머니가 외할머니, 외할아버지에게 입양되었을 가능성이 큽니다.\n자세히 알아보고 다시 진행해 주세요.')
+                
+                break
+            else:
+                m.append('O')
+                m.append('A')
+                m.append('O')     
+        elif md == 'AB' and mm == 'AB' :
+            m.append('A')
+            m.append('A')
+            m.append('A')
+        else:
+            m.append('A')
+            m.append('A')
+            m.append('O')
     else :
-        m.append('B')
-        m.append('B')
-        m.append('O')
-son = [d[0]+m[0], d[0]+m[1], d[0]+m[2], d[0]+m[3], d[1]+m[0], d[1]+m[1], 
-       d[1]+m[2], d[1]+m[3], d[2]+m[0], d[2]+m[1], d[2]+m[2], d[2]+m[3], 
-       d[3]+m[0], d[3]+m[1], d[3]+m[2], d[3]+m[3]]
+        md = input('외할아버지의 혈액형을 입력하세요 :').upper()
+        mm = input('외할머니의 혈액형을 입력하세요 :').upper()
+        if md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
+            if md=='A' and mm=='A':
+                print('어머니가 외할머니, 외할아버지에게 입양되었을 가능성이 큽니다.\n자세히 알아보고 다시 진행해 주세요.')
+                
+                break
+            else:
+                m.append('O')
+                m.append('B')
+                m.append('O')     
+        elif md == 'AB' and mm == 'AB' :
+            m.append('B')
+            m.append('B')
+            m.append('B')
+        else :
+            m.append('B')
+            m.append('B')
+            m.append('O')
+    son = [d[0]+m[0], d[0]+m[1], d[0]+m[2], d[0]+m[3], d[1]+m[0], d[1]+m[1], 
+           d[1]+m[2], d[1]+m[3], d[2]+m[0], d[2]+m[1], d[2]+m[2], d[2]+m[3], 
+           d[3]+m[0], d[3]+m[1], d[3]+m[2], d[3]+m[3]]
 
 
-for i in range(0,16) :
-    if son[i] == 'BA' :
-        son[i] = 'AB'
-    elif son[i] == 'OA' :
-        son[i] = 'AO'
-    elif son[i] == 'OB' :
-        son[i] = 'BO'
-        
-cAB = 6.25 * (son.count('AB'))
-cAO = 6.25 * (son.count('AO'))
-cAA = 6.25 * (son.count('AA'))
-cBB = 6.25 * (son.count('BB'))
-cBO = 6.25 * (son.count('BO'))
-cOO = 6.25 * (son.count('OO'))
-pro = {"AO": cAO, "AA": cAA, "AB": cAB, "BO": cBO, "BB": cBB, "OO" : cOO}
-print(pro)
+    for i in range(0,16) :
+        if son[i] == 'BA' :
+            son[i] = 'AB'
+        elif son[i] == 'OA' :
+            son[i] = 'AO'
+        elif son[i] == 'OB' :
+            son[i] = 'BO'
 
-import matplotlib.pyplot as plt
-plt.figure(figsize=(3,2), dpi=300)
+    cAB = 6.25 * (son.count('AB'))
+    cAO = 6.25 * (son.count('AO'))
+    cAA = 6.25 * (son.count('AA'))
+    cBB = 6.25 * (son.count('BB'))
+    cBO = 6.25 * (son.count('BO'))
+    cOO = 6.25 * (son.count('OO'))
+    pro = {"AO": cAO, "AA": cAA, "AB": cAB, "BO": cBO, "BB": cBB, "OO" : cOO}
+    print(pro)
 
-#value값이 0인 key들 제거
-delkey=[]
-for i in pro:
-    if pro[i]==0.0:
-        delkey.append(i)
-for i in delkey:
-    del pro[i]
-        
-#pro에서 size와 labels 제작
-labels = list(pro.keys())
-size = list(pro.values())
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(3,2), dpi=300)
 
-#수에 맞는 색을 팔레트에서 추출
-palette = ['hotpink', 'red', 'blueviolet', 'blue','lightskyblue','lightgray']
-colors = []
-for i in pro:
-    colors.append(palette.pop())
+    #value값이 0인 key들 제거
+    delkey=[]
+    for i in pro:
+        if pro[i]==0.0:
+            delkey.append(i)
+    for i in delkey:
+        del pro[i]
 
-plt.title('blood type')
-plt.pie(size, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    #pro에서 size와 labels 제작
+    labels = list(pro.keys())
+    size = list(pro.values())
 
-plt.axis('equal')
-plt.show()
+    #수에 맞는 색을 팔레트에서 추출
+    palette = ['hotpink', 'red', 'blueviolet', 'blue','lightskyblue','lightgray']
+    colors = []
+    for i in pro:
+        colors.append(palette.pop())
+
+    plt.title('blood type')
+    plt.pie(size, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+
+    plt.axis('equal')
+    plt.show()
+    break

@@ -1,7 +1,7 @@
 d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
 if len(d) == 2 :
-    d.append('A')
-    d.append('B')
+    d.append(d[0])
+    d.append(d[1])
 elif d[0] == 'O' :
     d.append('O')
     d.append('O')
@@ -39,8 +39,8 @@ else :
 
 m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  '))
 if len(m) == 2 :
-    m.append('A')
-    m.append('B')
+    m.append(m[0])
+    m.append(m[1])
 elif m[0] == 'O' :
     m.append('O')
     m.append('O')

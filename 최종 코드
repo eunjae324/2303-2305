@@ -1,15 +1,15 @@
 d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
 if len(d) == 2 :
-    d.append('A')
+    d.append('A')  #AB형일 때
     d.append('B')
-elif d[0] == 'O' :
+elif d[0] == 'O' :   #O형일 대
     d.append('O')
+    d.append('O')  
     d.append('O')
-    d.append('O')
-elif d[0] == 'A' :
+elif d[0] == 'A' :  #A형일 때 
     dd = input('친할아버지의 혈액형을 입력하세요 :')
     dm = input('친할머니의 혈액형을 입력하세요 :')
-    if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
+    if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' : #조부모의 유전자형에 따른 아버지의 유전자형 결정
         d.append('O')
         d.append('A')
         d.append('O')
@@ -22,7 +22,7 @@ elif d[0] == 'A' :
         d.append('A')
         d.append('O')
 else :
-    dd = input('친할아버지의 혈액형을 입력하세요 :')
+    dd = input('친할아버지의 혈액형을 입력하세요 :')  #위와 동일한 과정
     dm = input('친할머니의 혈액형을 입력하세요 :')
     if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
         d.append('O')
@@ -61,7 +61,7 @@ elif m[0] == 'A' :
         m.append('A')
         m.append('O')
 else :
-    md = input('외할아버지의 혈액형을 입력하세요 :')
+    md = input('외할아버지의 혈액형을 입력하세요 :') #아버지의 코드와 동일하게 설정
     mm = input('외할머니의 혈액형을 입력하세요 :')
     if md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
         m.append('O')
@@ -88,7 +88,7 @@ for i in range(0,16) :
     elif son[i] == 'OB' :
         son[i] = 'BO'
         
-cAB = 6.25 * (son.count('AB'))
+cAB = 6.25 * (son.count('AB'))   #자녀의 혈액형 확률 설정
 cAO = 6.25 * (son.count('AO'))
 cAA = 6.25 * (son.count('AA'))
 cBB = 6.25 * (son.count('BB'))

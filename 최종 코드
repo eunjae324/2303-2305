@@ -97,7 +97,7 @@ cBO = 6.25 * (son.count('BO'))
 cOO = 6.25 * (son.count('OO'))
 pro = {"AO": cAO, "AA": cAA, "AB": cAB, "BO": cBO, "BB": cBB, "OO" : cOO}
 print(pro)
-
+    
 import matplotlib.pyplot as plt
 plt.figure(figsize=(3,2), dpi=300)
 

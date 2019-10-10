@@ -1,27 +1,27 @@
-d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
-if len(d) == 2 :
-    d.append('A')
-    d.append('B')
-elif d[0] == 'O' :
+d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  ')) #아버지의 혈액형을 입력받아 리스트에 정리
+if len(d) == 2 : #만약 d의 길이가 2라면
+    d.append('A') 
+    d.append('B') #AB형을 의미하므로d에 A,B를 넣어준다
+elif d[0] == 'O' : #만약 첫번째 문자가 0일경우
+    d.append('O') # 0형이므로 0을 더해준다
     d.append('O')
     d.append('O')
-    d.append('O')
-elif d[0] == 'A' :
+elif d[0] == 'A' : #만약 첫번째 문자가 A일경우
     dd = input('친할아버지의 혈액형을 입력하세요 :')
     dm = input('친할머니의 혈액형을 입력하세요 :')
     if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
-        d.append('O')
+        d.append('O') #친할아버지와 할머니의 혈액형을 통해 AO인지 AA인지 더해준다
         d.append('A')
         d.append('O')
     elif dd == 'AB' and dm == 'AB' :
-        d.append('A')
+        d.append('A') 
         d.append('A')
         d.append('A')
     else:
         d.append('A')
         d.append('A')
         d.append('O')
-else :
+else : #B형일때에도 A형과 동일한 작업 처리
     dd = input('친할아버지의 혈액형을 입력하세요 :')
     dm = input('친할머니의 혈액형을 입력하세요 :')
     if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
@@ -37,7 +37,7 @@ else :
         d.append('B')
         d.append('O')
 
-m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  '))
+m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  ')) # 엄마도 아빠랑 같은 방법으로 정확한 혈액형을 구한다
 if len(m) == 2 :
     m.append('A')
     m.append('B')
@@ -75,10 +75,12 @@ else :
         m.append('B')
         m.append('B')
         m.append('O')
+
 son = []
 for a in range(0,4) :
     for b in range(0,4) : 
         son.append(d[a]+m[b])
+
 
 
 for i in range(0,16) :
@@ -87,9 +89,9 @@ for i in range(0,16) :
     elif son[i] == 'OA' :
         son[i] = 'AO'
     elif son[i] == 'OB' :
-        son[i] = 'BO'
+        son[i] = 'BO' #우열에 따라 같은문자 처리를 해준다
         
-cAB = 6.25 * (son.count('AB'))
+cAB = 6.25 * (son.count('AB')) #1/8확률이므로 6.25 퍼센트를 곱해준다
 cAO = 6.25 * (son.count('AO'))
 cAA = 6.25 * (son.count('AA'))
 cBB = 6.25 * (son.count('BB'))
@@ -98,8 +100,8 @@ cOO = 6.25 * (son.count('OO'))
 pro = {"AO": cAO, "AA": cAA, "AB": cAB, "BO": cBO, "BB": cBB, "OO" : cOO}
 print(pro)
 
-import matplotlib.pyplot as plt
-plt.figure(figsize=(3,2), dpi=300)
+import matplotlib.pyplot as plt #그래프를 그린다는 의미
+plt.figure(figsize=(3,2), dpi=300) #사이즈와 화질을 결정
 
 #value값이 0인 key들 제거
 delkey=[]

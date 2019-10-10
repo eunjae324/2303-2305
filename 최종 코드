@@ -81,7 +81,7 @@ for a in range(0,4) :
         son.append(d[a]+m[b])
 
 
-for i in range(0,16) :
+for i in range(16) :
     if son[i] == 'BA' :
         son[i] = 'AB'
     elif son[i] == 'OA' :

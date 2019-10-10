@@ -1,3 +1,5 @@
+f=0
+g=0
 d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
 if len(d) == 2 :
     d.append('A')
@@ -9,7 +11,12 @@ elif d[0] == 'O' :
 elif d[0] == 'A' :
     dd = input('친할아버지의 혈액형을 입력하세요 :')
     dm = input('친할머니의 혈액형을 입력하세요 :')
-    if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
+    if dd == 'B' and dm == 'B' :
+        f=1
+        d.append('O')
+        d.append('A')
+        d.append('O')
+    elif dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
         d.append('O')
         d.append('A')
         d.append('O')
@@ -24,7 +31,12 @@ elif d[0] == 'A' :
 else :
     dd = input('친할아버지의 혈액형을 입력하세요 :')
     dm = input('친할머니의 혈액형을 입력하세요 :')
-    if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
+    if dd == 'A' and dm == 'A' :
+        f=1
+        d.append('O')
+        d.append('B')
+        d.append('O')
+    elif dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
         d.append('O')
         d.append('B')
         d.append('O')
@@ -48,7 +60,12 @@ elif m[0] == 'O' :
 elif m[0] == 'A' :
     md = input('외할아버지의 혈액형을 입력하세요 :')
     mm = input('외할머니의 혈액형을 입력하세요 :')
-    if md == 'B' or md == 'O' or mm == 'B' or mm == 'O' :
+    if md == 'B' and mm == 'B' :
+        g=1
+        m.append('O')
+        m.append('A')
+        m.append('O')
+    elif md == 'B' or md == 'O' or mm == 'B' or mm == 'O' :
         m.append('O')
         m.append('A')
         m.append('O')
@@ -63,7 +80,12 @@ elif m[0] == 'A' :
 else :
     md = input('외할아버지의 혈액형을 입력하세요 :')
     mm = input('외할머니의 혈액형을 입력하세요 :')
-    if md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
+    if md == 'A' and mm == 'A' :
+        g=1
+        m.append('O')
+        m.append('B')
+        m.append('O')
+    elif md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
         m.append('O')
         m.append('B')
         m.append('O')
@@ -124,3 +146,8 @@ plt.pie(size, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
 
 plt.axis('equal')
 plt.show()
+
+if f == 1 :
+    print('당신 아버지는 입양아입니다.')
+if g == 1 :
+    print('당신 어머니는 입양아입니다.')

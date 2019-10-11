@@ -1,14 +1,14 @@
 d = list(input('아버지의 혈액형을 입력하세요 Ex) A :  '))
-if len(d) == 2 :
+if len(d) == 2 :#AB,O형의 경우에는 표현형만으로 유전자형이 결정-부친이 AB형인 경우
     d.append('A')
     d.append('B')
-elif d[0] == 'O' :
+elif d[0] == 'O' :#부친이 O형인 경우
     d.append('O')
     d.append('O')
     d.append('O')
 elif d[0] == 'A' :
-    dd = input('친할아버지의 혈액형을 입력하세요 :')
-    dm = input('친할머니의 혈액형을 입력하세요 :')
+    dd = input('친할아버지의 혈액형을 입력하세요 :') #A,B 형의 경우 같은 표현형을 가지더라도 유전자형이 다를 수 있음.
+    dm = input('친할머니의 혈액형을 입력하세요 :')# 부계 혈통의 결정을 통해 부친의 유전자형 결정. B형의 경우
     if dd == 'B' or dd == 'O' or dm == 'B' or dm == 'O' :
         d.append('O')
         d.append('A')
@@ -22,7 +22,7 @@ elif d[0] == 'A' :
         d.append('A')
         d.append('O')
 else :
-    dd = input('친할아버지의 혈액형을 입력하세요 :')
+    dd = input('친할아버지의 혈액형을 입력하세요 :')# 부계 혈통의 결정을 통해 부친의 유전자형 결정. A형의 경우
     dm = input('친할머니의 혈액형을 입력하세요 :')
     if dd == 'A' or dd == 'O' or dm == 'A' or dm == 'O' :
         d.append('O')
@@ -38,16 +38,16 @@ else :
         d.append('O')
 
 m = list(input('어머니의 혈액형을 입력하세요 Ex) A :  '))
-if len(m) == 2 :
+if len(m) == 2 :#AB,O형의 경우에는 표현형만으로 유전자형이 결정-모친이 AB형인 경우
     m.append('A')
     m.append('B')
-elif m[0] == 'O' :
+elif m[0] == 'O' :#모친이 O형인 경우
     m.append('O')
     m.append('O')
     m.append('O')
 elif m[0] == 'A' :
-    md = input('외할아버지의 혈액형을 입력하세요 :')
-    mm = input('외할머니의 혈액형을 입력하세요 :')
+    md = input('외할아버지의 혈액형을 입력하세요 :')#A,B 형의 경우 같은 표현형을 가지더라도 유전자형이 다를 수 있음.
+    mm = input('외할머니의 혈액형을 입력하세요 :')# 모계 혈통의 결정을 통해 모친의 유전자형 결정 B형의 경우.
     if md == 'B' or md == 'O' or mm == 'B' or mm == 'O' :
         m.append('O')
         m.append('A')
@@ -61,7 +61,7 @@ elif m[0] == 'A' :
         m.append('A')
         m.append('O')
 else :
-    md = input('외할아버지의 혈액형을 입력하세요 :')
+    md = input('외할아버지의 혈액형을 입력하세요 :')# 모계 혈통의 결정을 통해 모친의 유전자형 결정. A형의 경우
     mm = input('외할머니의 혈액형을 입력하세요 :')
     if md == 'A' or md == 'O' or mm == 'A' or mm == 'O' :
         m.append('O')
@@ -76,12 +76,12 @@ else :
         m.append('B')
         m.append('O')
 son = []
-for a in range(0,4) :
+for a in range(0,4) :#유전 과정. 유전자형의 배합.
     for b in range(0,4) : 
         son.append(d[a]+m[b])
 
 
-for i in range(0,16) :
+for i in range(0,16) :#유전자형을 일반적인 표기법으로 정렬.
     if son[i] == 'BA' :
         son[i] = 'AB'
     elif son[i] == 'OA' :
@@ -102,7 +102,7 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(3,2), dpi=300)
 
 #value값이 0인 key들 제거
-delkey=[]
+delkey=[]#유전자형의 O 인자는 표현형에 영향을 끼치지 못함. 제거하여 일반적인 혈액형으로 표기.
 for i in pro:
     if pro[i]==0.0:
         delkey.append(i)
